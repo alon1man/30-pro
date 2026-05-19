@@ -15,7 +15,6 @@ def caser(sentence, key):
             new_string += i
             continue
         
-        # Calculate shift
         temp = a_z.find(i) + key
         new_string += a_z[temp % 26]
         
@@ -37,8 +36,7 @@ def caser_decrypt(sentence,key):
         if not (i.isalpha()):
             newer_string += i
             continue
-        
-        # Calculate shift (subtracting moves backward)
+     
         temp = a_z.find(i) - key
         newer_string += a_z[temp % 26]
         
