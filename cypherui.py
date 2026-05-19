@@ -16,9 +16,9 @@ buttonright_game = None
 buttonleft_game = None
 buttonleftdown_game = None
 
-def open_cypher_ui_1():  # First UI function
-    global root_1  # גלובליזציה
-    root_1 = tk.Tk()  # screen 1 starting point
+def open_cypher_ui_1():  
+    global root_1  
+    root_1 = tk.Tk()  
     root_1.resizable(False, False)
     root_1.title('your friendly neighborhood cypher ui')
     root_1.configure(bg='lightgray')
@@ -49,18 +49,17 @@ def open_cypher_ui_1():  # First UI function
     mini_img_label.image = mini_img
     mini_img_label.pack(pady=10)
 
-    # screen 1 ending point
-    root_1.mainloop()  # the said loop that ends the first screen
-def open_decypher_ui_2():  # Second UI function
+    root_1.mainloop() 
+def open_decypher_ui_2():  
     global Lb
     global result
     global entry1
-    global entry2  # גלובליזציה
+    global entry2 
 
-    # Destroy the first window
+    
     root_1.destroy()
 
-    root_2 = tk.Tk()  # screen 2 starting point
+    root_2 = tk.Tk() 
     root_2.resizable(False, False)
     root_2.title('decryption station')
     root_2.geometry("1000x600")
@@ -100,12 +99,12 @@ def open_decypher_ui_2():  # Second UI function
 
     Lb = make_cipher_listbox(root_2, entry1, result, x=10, y=300)
     update_key_field_state(entry1, Lb)
-    #  one-line copy, keeps everything else the same
+  
     button_copy = tk.Button(root_2,text="copy to clipboard",activebackground="green",activeforeground="white",command=lambda: pc.copy(result.get()))
     button_copy.place(x=600, y=380)
-    # screen 2 ending point
+   
     def open_info_ui_1():
-        root_info = tk.Tk()  # screen 1 starting point
+        root_info = tk.Tk() 
         root_info.resizable(False, False)
         root_info.title('info abput the ciphers')
         root_info.configure(bg='lightgray')
@@ -157,17 +156,17 @@ def on_button_clickde():
         answer = one_time_pad_decrypt(sentence, keyword)
     else:
         answer = "Unknown cipher"
-    result.set(answer)  # the said loop that ends the second screen  # Second UI function
-def open_cypher_ui_2():  # Second UI function
+    result.set(answer)  
+def open_cypher_ui_2():  
     global Lb
     global result
     global entry1
-    global entry2  # גלובליזציה
+    global entry2   
 
-    # Destroy the first window
+    
     root_1.destroy()
 
-    root_2 = tk.Tk()  # screen 2 starting point
+    root_2 = tk.Tk()  
     root_2.resizable(False, False)
     root_2.title('encryption station')
     root_2.geometry("1000x600")
@@ -220,12 +219,12 @@ def open_cypher_ui_2():  # Second UI function
 
     Lb = make_cipher_listbox(root_2, entry1, result, x=10, y=300)
     update_key_field_state(entry1, Lb)
-    #  one-line copy, keeps everything else the same
+    
     button_copy = tk.Button(root_2,text="copy to clipboard",activebackground="green",activeforeground="white",command=lambda: pc.copy(result.get()))
     button_copy.place(x=600, y=380)
-    # screen 2 ending point
+ 
     def open_info_ui_1():
-        root_info = tk.Tk()  # screen 1 starting point
+        root_info = tk.Tk()  
         root_info.title('info abput the ciphers')
         root_info.configure(bg='lightgray')
         root_info.geometry("820x270")
@@ -239,7 +238,7 @@ def open_cypher_ui_2():  # Second UI function
     button_info.place(x=10, y=250)
     root_2.mainloop() 
     
-     # the said loop that ends the second screen
+ 
 def on_button_clickin():
 
 
@@ -306,7 +305,7 @@ def open_smm():
         root_1.destroy()
     except Exception:
         pass
-    root_smm = tk.Tk()  # screen 1 starting point
+    root_smm = tk.Tk()  
     root_smm.resizable(False, False)
     root_smm.title('the descriptive murder mystery front page')
     root_smm.configure(bg='lightgray')
@@ -331,7 +330,7 @@ def open_smm_game():
     game_right_solved = False
     page_left_solved = False
     page_leftdown_solved = False
-    root_game = tk.Tk()  # screen 1 starting point
+    root_game = tk.Tk() 
     root_game.resizable(False, False)
     root_game.title('game')
     root_game.configure(bg='lightgray')
@@ -395,7 +394,7 @@ def on_buttonright():
     root_btr.title('game right botton')
     root_btr.configure(bg='lightgray')
     root_btr.geometry("400x450")
-    # pick the cipher once to ensure consistent display and key
+   
     enc = encryptionnum()
     word = artrandomword()
     key = keyrandom()
@@ -422,7 +421,7 @@ def on_buttonleft():
     root_btl.title('game left botton')
     root_btl.configure(bg='lightgray')
     root_btl.geometry("400x450")
-    # choose cipher once to avoid inconsistent labels
+   
     enc_s = encryptionstring()
     word = scaryrandomword()
     key = stringkeyrandom()
@@ -536,17 +535,14 @@ def start_timer(seconds):
 
     def count_down(time_left):
        
-        # מחשב דקות ושניות בשורה אחת פשוטה
         mins, secs = divmod(max(time_left, 0), 60)
         timer_label.config(text=f"{mins:02d}:{secs:02d}")
 
         if time_left > 0:
-            # קריאה חוזרת לפונקציה בעוד שנייה
+           
             roott.after(1000, count_down, time_left - 1)
         else:
-            # מה קורה כשהטיימר מגיע ל-0 ומסתיים
             timer_label.config(text="00:00", fg="red")
-            # פעולה כשהטיימר מסתיים: הדפסה, הודעת קופסה וסגירת הטיימר
             try:
                 from tkinter import messagebox
                 messagebox.showinfo("Timer", "Time's up!")
@@ -570,14 +566,12 @@ def start_timer(seconds):
     count_down(seconds)
     roott.mainloop()
    
-# דוגמה להפעלה עם 90 שניות (דקה וחצי)
 
 def game_rules():
     name_to_save = full.get()
     difficulty_idx = v.get()
 
     if name_to_save != "" and difficulty_idx != 0:
-        # קודם כל שומרים את הנתונים
         savename(name_to_save)
         
         diff_map = {1: "easy", 2: "normal", 3: "hard"}
@@ -590,7 +584,6 @@ def game_rules():
         if difficulty_idx == 3:
             totime = 90
         
-        # עדכון כל שנייה
         root_smm.destroy()
         open_smm_game()
         start_timer(totime)
