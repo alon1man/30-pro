@@ -411,7 +411,9 @@ def on_buttonright():
     entry1.pack(pady=10)
     buttonright = tk.Button(root_btr,text='guess',width=7,activebackground="blue",activeforeground="white", command=lambda: on_buttontry(entry1, word, root_btr, 'right'))
     buttonright.pack(pady=12)
-
+    label_hint = tk.Label(root_btr, text="Hint: the structure of the word is:  "+word[0]+((len(word)-2)*"-")+word[-1], bg='yellow')
+    label_hint.pack(pady=7)
+    
 def on_buttonleft():
     global root_btl, page_left_solved
     if page_left_solved:
@@ -436,6 +438,8 @@ def on_buttonleft():
     entry1.pack(pady=10)
     buttonright = tk.Button(root_btl,text='guess',width=7,activebackground="blue",activeforeground="white", command=lambda: on_buttontry(entry1, word, root_btl, 'left'))
     buttonright.pack(pady=12)
+    label_hint = tk.Label(root_btr, text="Hint: the structure of the word is:  "+word[0]+((len(word)-2)*"-")+word[-1], bg='yellow')
+    label_hint.pack(pady=7)
 
 
 def on_buttonleftdown():
@@ -461,7 +465,8 @@ def on_buttonleftdown():
     entry1.pack(pady=10)
     buttonright = tk.Button(root_btlb,text='guess',width=7,activebackground="blue",activeforeground="white", command=lambda: on_buttontry(entry1, word, root_btlb, 'leftdown'))
     buttonright.pack(pady=12)
-
+    label_hint = tk.Label(root_btr, text="Hint: the structure of the word is:  "+word[0]+((len(word)-2)*"-")+word[-1], bg='yellow')
+    label_hint.pack(pady=7)
 
 def on_buttontry(entry1, answer, window, source):
     global game_right_solved, page_left_solved, page_leftdown_solved
