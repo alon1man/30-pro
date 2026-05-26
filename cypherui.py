@@ -20,7 +20,7 @@ def open_cypher_ui_1():
     global root_1  
     root_1 = tk.Tk()  
     root_1.resizable(False, False)
-    root_1.title('your friendly neighborhood cypher ui')
+    root_1.title('cypher ui')
     root_1.configure(bg='lightgray')
     root_1.geometry("1000x600")
 
